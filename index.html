@@ -419,7 +419,7 @@ const PROJECTS=[
  {id:"cephalometric-landmark-detector",pvc:"#3b6ea5",pv:"ceph",year:"2024–25",stack:["C#","EmguCV","WinForms","OpenCV"],github:"https://github.com/PerfectPoH/cephalometric-landmark-detector",private:true},
  {id:"java-chess-rmi",pvc:"#6b4f8a",pv:"chess",year:"2024",stack:["Java","Swing","Java RMI"],github:"https://github.com/PerfectPoH/java-chess-rmi",banner:"media/gambeat.webp"},
  {id:"java-tic-tac-toe-deluxe",pvc:"#c0922b",pv:"ttt",year:"2024",stack:["Java","Swing","Java Sound"],github:"https://github.com/PerfectPoH/java-tic-tac-toe-deluxe",banner:"media/tictactoe-banner.png",video:"media/tictactoe.mp4",download:"downloads/tictactoe.zip"},
- {id:"pizzeria-ordering-system",pvc:"#b5462f",pv:"pizza",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/pizzeria-ordering-system"},
+ {id:"pizzeria-ordering-system",pvc:"#b5462f",pv:"pizza",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/pizzeria-ordering-system",video:"media/pizzeria-trailer.mp4",poster:"media/pizzeria-poster.jpg"},
  {id:"typehard-typing-trainer",pvc:"#247f7f",pv:"type",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/typehard-typing-trainer",banner:"media/typehard.webp"},
  {id:"billys-adventure-godot-platformer",pvc:"#4a8d3f",pv:"plat",year:"2023–24",stack:["Godot","GDScript"],github:"https://github.com/PerfectPoH/billys-adventure-godot-platformer",banner:"media/billys-adventure.webp"},
  {id:"dotnet-token-generator-api",pvc:"#5a54c9",pv:"api",year:"2024",stack:["C#",".NET","Web API"],github:"https://github.com/PerfectPoH/dotnet-token-generator-api"},
@@ -767,7 +767,7 @@ function openProject(id){
  document.getElementById("detail").innerHTML=
   '<button class="d-back" data-home>'+ICN.back+'<span>'+U.back+'</span></button>'
   +'<div class="d-cat">'+String(idx+1).padStart(2,"0")+' — '+t.cat+' · '+p.year+'</div><h1 class="d-title">'+titleOf(id)+'</h1>'
-  +(p.video?'<div class="d-hero" style="view-transition-name:proj-hero;aspect-ratio:auto;background:#000"><video src="'+p.video+'" controls playsinline preload="metadata"'+(p.banner?' poster="'+p.banner+'"':'')+' style="width:100%;height:auto;display:block"></video></div>':(p.banner?'<div class="d-hero" style="view-transition-name:proj-hero"><img src="'+p.banner+'" alt="'+titleOf(id)+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>':'<div class="d-hero" style="view-transition-name:proj-hero"><div class="thumb go">'+preview(p)+'</div></div>'))
+  +(p.video?'<div class="d-hero" style="view-transition-name:proj-hero;aspect-ratio:auto;background:#000"><video src="'+p.video+'" controls playsinline preload="metadata"'+((p.poster||p.banner)?' poster="'+(p.poster||p.banner)+'"':'')+' style="width:100%;height:auto;display:block"></video></div>':(p.banner?'<div class="d-hero" style="view-transition-name:proj-hero"><img src="'+p.banner+'" alt="'+titleOf(id)+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>':'<div class="d-hero" style="view-transition-name:proj-hero"><div class="thumb go">'+preview(p)+'</div></div>'))
   +'<div class="d-cols"><div class="d-desc">'+t.desc.map(d=>'<p>'+d+'</p>').join("")
   +'<div class="d-hi"><div class="lbl">'+U.highlights+'</div><ul>'+t.hi.map(h=>'<li style="--pvc:'+p.pvc+'">'+h+'</li>').join("")+'</ul></div>'
   +'<div class="d-links">'+links+'</div></div>'
