@@ -419,7 +419,7 @@ const PROJECTS=[
  {id:"cephalometric-landmark-detector",pvc:"#3b6ea5",pv:"ceph",year:"2024–25",stack:["C#","EmguCV","WinForms","OpenCV"],github:"https://github.com/PerfectPoH/cephalometric-landmark-detector",private:true},
  {id:"java-chess-rmi",pvc:"#6b4f8a",pv:"chess",year:"2024",stack:["Java","Swing","Java RMI"],github:"https://github.com/PerfectPoH/java-chess-rmi",banner:"media/gambeat.webp"},
  {id:"java-tic-tac-toe-deluxe",pvc:"#c0922b",pv:"ttt",year:"2024",stack:["Java","Swing","Java Sound"],github:"https://github.com/PerfectPoH/java-tic-tac-toe-deluxe",banner:"media/tictactoe-banner.png",video:"media/tictactoe.mp4",download:"downloads/tictactoe.zip"},
- {id:"pizzeria-ordering-system",pvc:"#b5462f",pv:"pizza",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/pizzeria-ordering-system",video:"media/pizzeria-trailer.mp4",poster:"media/pizzeria-poster.jpg"},
+ {id:"pizzeria-ordering-system",pvc:"#b5462f",pv:"pizza",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/pizzeria-ordering-system",video:"media/pizzeria-trailer.mp4",banner:"media/pizzeria-banner.webp"},
  {id:"typehard-typing-trainer",pvc:"#247f7f",pv:"type",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/typehard-typing-trainer",banner:"media/typehard.webp"},
  {id:"billys-adventure-godot-platformer",pvc:"#4a8d3f",pv:"plat",year:"2023–24",stack:["Godot","GDScript"],github:"https://github.com/PerfectPoH/billys-adventure-godot-platformer",banner:"media/billys-adventure.webp"},
  {id:"dotnet-token-generator-api",pvc:"#5a54c9",pv:"api",year:"2024",stack:["C#",".NET","Web API"],github:"https://github.com/PerfectPoH/dotnet-token-generator-api"},
@@ -754,7 +754,8 @@ function applyStatic(){
  document.documentElement.dir=(lang==="ar")?"rtl":"ltr";
 }
 /* ============ DETAIL ============ */
-let _curProj=null;
+let _curProj=null,_vplayNext=false;
+function stopMedia(){document.querySelectorAll("#detail video").forEach(v=>{try{v.pause()}catch(e){}});}
 function openProject(id){
  _curProj=id;
  const p=PROJECTS.find(x=>x.id===id);const t=tp(id);const U=tr("ui");
@@ -778,15 +779,18 @@ function openProject(id){
  dEl.style.background="color-mix(in srgb,"+p.pvc+" 5%,var(--bg))";
  dEl.style.setProperty("--pvsel",p.pvc);
  dEl.querySelector("[data-home]").onclick=()=>wipeTo(goHome);
- dEl.querySelector("[data-next]").onclick=()=>wipeTo(()=>openProject(next.id));
+ dEl.querySelector("[data-next]").onclick=()=>{_vplayNext=true;wipeTo(()=>openProject(next.id));};
+ const vv=dEl.querySelector("video");
+ if(_vplayNext){_vplayNext=false;if(vv){const pp=vv.play();if(pp&&pp.catch)pp.catch(()=>{vv.muted=true;vv.play().catch(()=>{});});}}
  if(location.hash!=="#/work/"+id)location.hash="#/work/"+id;
  window.scrollTo(0,0);
 }
-function goHome(){_curProj=null;document.body.classList.remove("detail-open","about-open");if(location.hash)history.pushState("",document.title,location.pathname+location.search);window.scrollTo(0,0);setTimeout(scrollFx,0);}
+function goHome(){_curProj=null;stopMedia();document.body.classList.remove("detail-open","about-open");if(location.hash)history.pushState("",document.title,location.pathname+location.search);window.scrollTo(0,0);setTimeout(scrollFx,0);}
 function routeFromHash(){
  const m=location.hash.match(/#\/work\/(.+)/);
  if(m&&PROJECTS.find(p=>p.id===m[1])){document.body.classList.remove("about-open");if(_curProj!==m[1])openProject(m[1]);return;}
  if(location.hash==="#/about"){openAbout(true);return;}
+ stopMedia();
  document.body.classList.remove("detail-open","about-open");
 }
 /* ============ OBSERVERS ============ */
@@ -829,6 +833,7 @@ function wipeTo(action){
  },680);
 }
 function openAbout(direct){
+ stopMedia();
  document.body.classList.remove("detail-open");
  document.body.classList.add("about-open");
  renderAboutView();
@@ -838,6 +843,7 @@ function openAbout(direct){
 /* ============ V2: THEME / CLOCK / CURSOR / CHICCHE ============ */
 function openFromCard(card){
  const id=card.dataset.proj;
+ _vplayNext=true;
  if(!document.startViewTransition||REDUCE){wipeTo(()=>openProject(id));return;}
  const th=card.querySelector(".thumb");
  if(th)th.style.viewTransitionName="proj-hero";
