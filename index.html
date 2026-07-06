@@ -384,6 +384,17 @@ html{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink) 30%,trans
  .langs button{font-size:11.5px;padding:4px 5px}
  #detail,#about-view{padding-top:132px}
 }
+/* other work: griglia dei progetti minori */
+.other{margin-top:clamp(70px,12vh,150px)}
+.ow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+@media(max-width:820px){.ow-grid{grid-template-columns:1fr}}
+.ow-box{display:block;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:border-color .25s,transform .3s cubic-bezier(.2,.7,.2,1)}
+.ow-box:hover{border-color:var(--ink);transform:translateY(-4px)}
+.ow-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;isolation:isolate}
+.ow-meta{padding:14px 16px 16px;display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--line);background:var(--bg)}
+.ow-num{font-family:var(--body);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.ow-t{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(15px,1.6vw,19px);color:var(--ink)}
+.ow-c{font-family:var(--body);font-size:12.5px;color:var(--muted)}
 </style>
 <script>try{var _t=localStorage.getItem("theme");if(_t==="dark"||(!_t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark");}catch(e){}</script>
 </head>
@@ -433,16 +444,15 @@ const PROJECTS=[
  {id:"java-chess-rmi",pvc:"#6b4f8a",pv:"chess",year:"2024",stack:["Java","Swing","Java RMI"],github:"https://github.com/PerfectPoH/java-chess-rmi",video:"media/gambeat-trailer.mp4",banner:"media/gambeat.webp"},
  {id:"java-tic-tac-toe-deluxe",pvc:"#c0922b",pv:"ttt",year:"2024",stack:["Java","Swing","Java Sound"],github:"https://github.com/PerfectPoH/java-tic-tac-toe-deluxe",banner:"media/tictactoe-banner.png",video:"media/tictactoe.mp4",download:"downloads/tictactoe.zip"},
  {id:"pizzeria-ordering-system",pvc:"#b5462f",pv:"pizza",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/pizzeria-ordering-system",video:"media/pizzeria-trailer.mp4",banner:"media/pizzeria-banner.webp"},
- {id:"typehard-typing-trainer",pvc:"#247f7f",pv:"type",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/typehard-typing-trainer",banner:"media/typehard.webp"},
  {id:"billys-adventure-godot-platformer",pvc:"#4a8d3f",pv:"plat",year:"2023–24",stack:["Godot","GDScript"],github:"https://github.com/PerfectPoH/billys-adventure-godot-platformer",video:"media/billys-trailer.mp4",banner:"media/billys-adventure.webp"},
- {id:"dotnet-token-generator-api",pvc:"#5a54c9",pv:"api",year:"2024",stack:["C#",".NET","Web API"],github:"https://github.com/PerfectPoH/dotnet-token-generator-api"},
- {id:"csharp-matrix-lab",pvc:"#b06a2c",pv:"mtx",year:"2024",stack:["C#","WinForms","Visual Studio"],github:"https://github.com/PerfectPoH/csharp-matrix-lab"}
+ {id:"dotnet-token-generator-api",pvc:"#5a54c9",pv:"api",year:"2024",stack:["C#",".NET","Web API"],github:"https://github.com/PerfectPoH/dotnet-token-generator-api",minor:true},
+ {id:"csharp-matrix-lab",pvc:"#b06a2c",pv:"mtx",year:"2024",stack:["C#","WinForms","Visual Studio"],github:"https://github.com/PerfectPoH/csharp-matrix-lab",minor:true}
 ];
 const TITLES={
  "adaptive-equity-trading-lab":"Adaptive Equity Trading Lab","soresina-mercati":"Soresina Mercati",
  "cephalometric-landmark-detector":"Cephalometric Landmark Detector","java-chess-rmi":"Java Chess RMI",
  "java-tic-tac-toe-deluxe":"Tic Tac Toe Deluxe","pizzeria-ordering-system":"Pizzeria Ordering System",
- "typehard-typing-trainer":"TypeHard Typing Trainer","billys-adventure-godot-platformer":"Billy's Adventure",
+ "billys-adventure-godot-platformer":"Billy's Adventure",
  "dotnet-token-generator-api":".NET Token Generator API","csharp-matrix-lab":"C# Matrix Lab"
 };
 /* ============ I18N (EN) ============ */
@@ -457,7 +467,7 @@ T.en={_name:"EN",
   focus:["Quantitative & ML research","Full-stack web (Next.js, Supabase)","Computer vision (C# / EmguCV)","Systems & networking (Java RMI, sockets)","Game development (Godot)","APIs & backends (.NET)"],
   langs:"Arabic (native) · English (B2) · Italian · German · learning Mandarin"},
  ui:{back:"All work",viewGithub:"View on GitHub",liveDemo:"Live demo",privateRepo:"Private — available on request",
-  role:"Role",year:"Year",context:"Context",stack:"Stack",highlights:"Highlights",nextProject:"Next project"},
+  role:"Role",year:"Year",context:"Context",stack:"Stack",highlights:"Highlights",nextProject:"Next project",otherWork:"Other work"},
  footer:{credit:"Designed & built by Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitative Research",role:"Research & infrastructure",context:"Personal research",
@@ -478,9 +488,6 @@ T.en={_name:"EN",
   "pizzeria-ordering-system":{cat:"Client–Server",role:"Solo developer",context:"School project",
    desc:["A client–server ordering app with product selection, cart totals and an order queue processed on a multi-client server.","Countdown feedback follows each order as it moves through preparation."],
    hi:["Multi-client socket server","Order queue with live status","Cart totals & countdown feedback"]},
-  "typehard-typing-trainer":{cat:"Client–Server",role:"Solo developer",context:"Personal project",
-   desc:["A typing-practice app with login and registration, difficulty modes, timed challenges and score calculation.","Leaderboard screens are served over a socket-based protocol."],
-   hi:["Timed typing challenges & scoring","Accounts over a socket protocol","Leaderboard screens"]},
   "billys-adventure-godot-platformer":{cat:"Game Development",role:"Solo developer",context:"Personal project",
    desc:["A small platformer focused on the fundamentals — character movement, collision handling and level traversal — built scene-by-scene in Godot.","It's packaged as an exported, playable build."],
    hi:["Side-scrolling movement & collisions","Scene-based Godot project","Exported playable build"]},
@@ -504,7 +511,7 @@ T.it={_name:"IT",
   focus:["Ricerca quantitativa e ML","Web full-stack (Next.js, Supabase)","Visione artificiale (C# / EmguCV)","Sistemi e reti (Java RMI, socket)","Sviluppo di videogiochi (Godot)","API e backend (.NET)"],
   langs:"Arabo (madrelingua) · Inglese (B2) · Italiano · Tedesco · sto imparando il mandarino"},
  ui:{back:"Tutti i lavori",viewGithub:"Vedi su GitHub",liveDemo:"Demo live",privateRepo:"Privato — disponibile su richiesta",
-  role:"Ruolo",year:"Anno",context:"Contesto",stack:"Tecnologie",highlights:"In evidenza",nextProject:"Progetto successivo"},
+  role:"Ruolo",year:"Anno",context:"Contesto",stack:"Tecnologie",highlights:"In evidenza",nextProject:"Progetto successivo",otherWork:"Altri lavori"},
  footer:{credit:"Progettato e sviluppato da Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Ricerca quantitativa",role:"Ricerca e infrastruttura",context:"Ricerca personale",
@@ -525,9 +532,6 @@ T.it={_name:"IT",
   "pizzeria-ordering-system":{cat:"Client–Server",role:"Sviluppatore (solo)",context:"Progetto scolastico",
    desc:["Un'app di ordinazione client–server con selezione dei prodotti, totali del carrello e una coda di ordini gestita da un server multi-client.","Un conto alla rovescia segue ogni ordine mentre avanza nella preparazione."],
    hi:["Server socket multi-client","Coda ordini con stato in tempo reale","Totali del carrello e conto alla rovescia"]},
-  "typehard-typing-trainer":{cat:"Client–Server",role:"Sviluppatore (solo)",context:"Progetto personale",
-   desc:["Un'app per esercitarsi a digitare con login e registrazione, modalità di difficoltà, sfide a tempo e calcolo del punteggio.","Le schermate della classifica sono servite tramite un protocollo basato su socket."],
-   hi:["Sfide di digitazione a tempo e punteggio","Account tramite protocollo socket","Schermate della classifica"]},
   "billys-adventure-godot-platformer":{cat:"Sviluppo di videogiochi",role:"Sviluppatore (solo)",context:"Progetto personale",
    desc:["Un piccolo platform incentrato sui fondamentali — movimento del personaggio, gestione delle collisioni e attraversamento dei livelli — costruito scena per scena in Godot.","È distribuito come build esportata e giocabile."],
    hi:["Movimento a scorrimento laterale e collisioni","Progetto Godot basato su scene","Build esportata e giocabile"]},
@@ -548,7 +552,7 @@ T.de={_name:"DE",
   focus:["Quantitative & ML-Forschung","Full-Stack-Web (Next.js, Supabase)","Computer Vision (C# / EmguCV)","Systeme & Netzwerke (Java RMI, Sockets)","Spieleentwicklung (Godot)","APIs & Backends (.NET)"],
   langs:"Arabisch (Muttersprache) · Englisch (B2) · Italienisch · Deutsch · lernt Mandarin"},
  ui:{back:"Alle Arbeiten",viewGithub:"Auf GitHub ansehen",liveDemo:"Live-Demo",privateRepo:"Privat — auf Anfrage verfügbar",
-  role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächstes Projekt"},
+  role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächstes Projekt",otherWork:"Weitere Arbeiten"},
  footer:{credit:"Gestaltet & entwickelt von Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitative Forschung",role:"Forschung & Infrastruktur",context:"Eigene Forschung",
@@ -569,9 +573,6 @@ T.de={_name:"DE",
   "pizzeria-ordering-system":{cat:"Client–Server",role:"Alleiniger Entwickler",context:"Schulprojekt",
    desc:["Eine Client-Server-Bestell-App mit Produktauswahl, Warenkorbsummen und einer Bestellwarteschlange, die von einem Multi-Client-Server verarbeitet wird.","Ein Countdown begleitet jede Bestellung auf ihrem Weg durch die Zubereitung."],
    hi:["Multi-Client-Socket-Server","Bestellwarteschlange mit Live-Status","Warenkorbsummen & Countdown-Feedback"]},
-  "typehard-typing-trainer":{cat:"Client–Server",role:"Alleiniger Entwickler",context:"Eigenes Projekt",
-   desc:["Eine Tipp-Trainings-App mit Login und Registrierung, Schwierigkeitsmodi, zeitlich begrenzten Herausforderungen und Punkteberechnung.","Bestenlisten werden über ein socket-basiertes Protokoll bereitgestellt."],
-   hi:["Zeitlich begrenzte Tipp-Challenges & Wertung","Konten über ein Socket-Protokoll","Bestenlisten-Ansichten"]},
   "billys-adventure-godot-platformer":{cat:"Spieleentwicklung",role:"Alleiniger Entwickler",context:"Eigenes Projekt",
    desc:["Ein kleiner Plattformer mit Fokus auf den Grundlagen — Spielerbewegung, Kollisionsbehandlung und Level-Navigation — Szene für Szene in Godot gebaut.","Er wird als exportierter, spielbarer Build ausgeliefert."],
    hi:["Seitwärts-Scrolling-Bewegung & Kollisionen","Szenenbasiertes Godot-Projekt","Exportierter, spielbarer Build"]},
@@ -592,7 +593,7 @@ T.ar={_name:"ع",
   focus:["الأبحاث الكمّية وتعلّم الآلة","وِب متكامل (Next.js، Supabase)","الرؤية الحاسوبية (C# / EmguCV)","الأنظمة والشبكات (Java RMI، المقابس)","تطوير الألعاب (Godot)","واجهات API والخلفيات (.NET)"],
   langs:"العربية (لغة أم) · الإنجليزية (B2) · الإيطالية · الألمانية · أتعلّم الماندرين"},
  ui:{back:"كل الأعمال",viewGithub:"عرض على GitHub",liveDemo:"عرض حي",privateRepo:"خاص — متاح عند الطلب",
-  role:"الدور",year:"السنة",context:"السياق",stack:"التقنيات",highlights:"أبرز النقاط",nextProject:"المشروع التالي"},
+  role:"الدور",year:"السنة",context:"السياق",stack:"التقنيات",highlights:"أبرز النقاط",nextProject:"المشروع التالي",otherWork:"أعمال أخرى"},
  footer:{credit:"تصميم وتطوير عبد الرحمن بركات — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"أبحاث كمّية",role:"بحث وبنية تحتية",context:"بحث شخصي",
@@ -613,9 +614,6 @@ T.ar={_name:"ع",
   "pizzeria-ordering-system":{cat:"عميل–خادم",role:"مطوّر منفرد",context:"مشروع دراسي",
    desc:["تطبيق طلبات عميل–خادم باختيار المنتجات، ومجاميع السلّة، وطابور طلبات يعالجه خادم متعدّد العملاء.","عدّاد تنازلي يرافق كل طلب وهو يتقدّم في مراحل التحضير."],
    hi:["خادم مقابس متعدّد العملاء","طابور طلبات بحالة فورية","مجاميع السلّة وتغذية بعدّاد تنازلي"]},
-  "typehard-typing-trainer":{cat:"عميل–خادم",role:"مطوّر منفرد",context:"مشروع شخصي",
-   desc:["تطبيق للتمرّن على الكتابة بتسجيل دخول وإنشاء حساب، وأنماط صعوبة، وتحدّيات مؤقّتة، وحساب للنقاط.","تُقدَّم شاشات لوحة المتصدّرين عبر بروتوكول قائم على المقابس."],
-   hi:["تحدّيات كتابة مؤقّتة وتسجيل نقاط","حسابات عبر بروتوكول مقابس","شاشات لوحة المتصدّرين"]},
   "billys-adventure-godot-platformer":{cat:"تطوير الألعاب",role:"مطوّر منفرد",context:"مشروع شخصي",
    desc:["لعبة منصّات صغيرة تركّز على الأساسيات — حركة الشخصية، ومعالجة التصادم، واجتياز المراحل — مبنيّة مشهدًا تلو الآخر في Godot.","تُسلَّم كنسخة مُصدَّرة قابلة للّعب."],
    hi:["حركة أفقية ومعالجة تصادم","مشروع Godot قائم على المشاهد","نسخة مُصدَّرة قابلة للّعب"]},
@@ -636,7 +634,7 @@ T.ch={_name:"CH",
   focus:["Quantitativi & ML-Forschig","Full-Stack-Web (Next.js, Supabase)","Computer Vision (C# / EmguCV)","Systeem & Netzwärch (Java RMI, Sockets)","Spielentwicklig (Godot)","APIs & Backends (.NET)"],
   langs:"Arabisch (Muetersproch) · Änglisch (B2) · Italienisch · Dütsch · lernt grad Mandarin"},
  ui:{back:"Alli Projäkt",viewGithub:"Uf GitHub aaluege",liveDemo:"Live-Demo",privateRepo:"Privat — uf Aafrog verfüegbar",
-  role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächschts Projäkt"},
+  role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächschts Projäkt",otherWork:"Anderi Arbeite"},
  footer:{credit:"Gstaltet & buut vom Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitativi Forschig",role:"Forschig & Infrastruktur",context:"Eiges Projäkt",
@@ -657,9 +655,6 @@ T.ch={_name:"CH",
   "pizzeria-ordering-system":{cat:"Client–Server",role:"Eilige Entwickler",context:"Schuelprojäkt",
    desc:["E Client-Server-Bstell-App mit Produktuswahl, Warechorb-Summe und ere Bstell-Warteschlange wo vo eme Multi-Client-Server verarbeitet wird.","En Countdown begleitet jedi Bstellig uf em Wäg dur d Zuebereitig."],
    hi:["Multi-Client-Socket-Server","Bstell-Warteschlange mit Live-Status","Warechorb-Summe & Countdown-Feedback"]},
-  "typehard-typing-trainer":{cat:"Client–Server",role:"Eilige Entwickler",context:"Eiges Projäkt",
-   desc:["E Tipp-Trainings-App mit Login und Registrierig, Schwierigkeits-Modi, ziitlich begränzte Useforderige und Punkt-Berächnig.","Ranglischte wärded über es socket-basierts Protokoll bereitgstellt."],
-   hi:["Ziitlich begränzti Tipp-Challenges & Wertig","Konte über es Socket-Protokoll","Ranglischte-Aasichte"]},
   "billys-adventure-godot-platformer":{cat:"Spielentwicklig",role:"Eilige Entwickler",context:"Eiges Projäkt",
    desc:["Es chliises Jump-'n'-Run wo sich uf d Grundlage konzentriert — Figure-Bewegig, Kollisions-Handling und Level-Navigation — Szene für Szene z Godot buut.","S wird als exportierti, spielbari Build usgliferet."],
    hi:["Siitwärts-Scrolling-Bewegig & Kollisione","Szene-basierts Godot-Projäkt","Exportierti, spielbari Build"]},
@@ -734,12 +729,20 @@ function renderLangs(){
 }
 function renderWork(){
  const g=document.getElementById("work");
- g.innerHTML=PROJECTS.map((p,i)=>{
+ const mainP=PROJECTS.filter(p=>!p.minor), minorP=PROJECTS.filter(p=>p.minor);
+ g.innerHTML=mainP.map((p,i)=>{
   const t=tp(p.id);
   return '<a class="work-item fade-up" href="#/work/'+p.id+'" data-proj="'+p.id+'" style="transition-delay:'+(i%2?.08:0)+'s">'
    +'<div class="thumb" data-pv="'+p.id+'">'+'<span class="idx">'+String(i+1).padStart(2,"0")+'</span>'+(p.banner?'<img src="'+p.banner+'" alt="'+titleOf(p.id)+'" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1">':preview(p))+(p.banner?'':'<div class="ttl"><span class="ttl-t">'+titleOf(p.id)+'</span><span class="ttl-s">'+t.cat+' · '+p.year+'</span></div>')+'<span class="open">'+ICN.arrow+'</span></div></a>';
- }).join("");
- g.querySelectorAll(".work-item").forEach(card=>card.onclick=(e)=>{e.preventDefault();openFromCard(card)});
+ }).join("")
+ +(minorP.length?'<div class="other fade-up"><h2 class="sec-label">'+tr("ui.otherWork")+'</h2><div class="ow-grid">'
+   +minorP.map((p,j)=>{
+    const t=tp(p.id);
+    return '<a class="ow-box fade-up" href="#/work/'+p.id+'" data-proj="'+p.id+'" style="transition-delay:'+(j*.07)+'s">'
+     +'<div class="ow-thumb">'+preview(p)+'</div>'
+     +'<div class="ow-meta"><span class="ow-num">'+String(mainP.length+j+1).padStart(2,"0")+'</span><span class="ow-t">'+titleOf(p.id)+'</span><span class="ow-c">'+t.cat+' · '+p.year+'</span></div></a>';
+   }).join("")+'</div></div>':"");
+ g.querySelectorAll(".work-item,.ow-box").forEach(card=>card.onclick=(e)=>{e.preventDefault();openFromCard(card)});
  observeFades();observeThumbs();requestAnimationFrame(scrollFx);
 }
 function renderAboutView(){
@@ -859,7 +862,7 @@ function openFromCard(card){
  const id=card.dataset.proj;
  _vplayNext=true;
  if(!document.startViewTransition||REDUCE){wipeTo(()=>openProject(id));return;}
- const th=card.querySelector(".thumb");
+ const th=card.querySelector(".thumb,.ow-thumb");
  if(th)th.style.viewTransitionName="proj-hero";
  const vt=document.startViewTransition(()=>openProject(id));
  vt.finished.finally(()=>{if(th)th.style.viewTransitionName="";});
