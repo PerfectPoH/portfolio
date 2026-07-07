@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy — Abed Barakat</title>
+<meta name="description" content="Privacy policy for abedbarakat.me — no cookies, no analytics, no third-party trackers." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://abedbarakat.me/privacy.html" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2315140f'/><text x='32' y='43' font-family='Arial,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='%23fff'>AB</text></svg>" />
+<link rel="preload" href="fonts/f03.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/f10.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts/fonts.css" />
+<style>
+:root{
+  --bg:#ffffff;--ink:#3b3b3b;--muted:#6f6f6f;--line:rgba(59,59,59,.16);--card:#f4f2ee;
+  --acc:#2f7d62;--pad:clamp(20px,6vw,60px);
+  --head:"Archivo","Helvetica Neue",Arial,sans-serif;--body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.dark{--bg:#15140f;--ink:#e9e6dd;--muted:#a39f93;--line:rgba(233,230,221,.16);--card:#211f19;--acc:#4bbd8f}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html[lang="ar"] body{font-family:"Noto Kufi Arabic","Inter",sans-serif}
+a{color:inherit}
+::selection{background:var(--ink);color:var(--bg)}
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  padding:16px var(--pad);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.back{font-family:var(--body);font-size:14.5px;text-decoration:none;position:relative;padding-bottom:3px}
+.back::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.back:hover::after{transform:scaleX(1)}
+.langs{display:flex;gap:2px}
+.langs button{background:none;border:0;color:var(--ink);opacity:.35;cursor:pointer;padding:5px 7px;font-family:var(--body);font-size:12.5px;letter-spacing:.04em;transition:opacity .2s}
+.langs button:hover{opacity:.7}
+.langs button.on{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.doc{max-width:760px;margin:0 auto;padding:clamp(40px,8vw,86px) var(--pad) clamp(70px,12vw,130px)}
+.kicker{display:inline-block;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:12px;border-top:2px solid var(--ink)}
+h1{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(34px,7vw,68px);line-height:1.02;letter-spacing:-.01em;margin:22px 0 10px}
+.updated{font-size:13.5px;color:var(--muted);margin-bottom:clamp(28px,5vw,46px)}
+.tldr{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);padding:20px 22px;margin-bottom:clamp(30px,5vw,44px);font-size:16px}
+.tldr b{font-family:var(--head);font-weight:700}
+h2{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(17px,2.3vw,22px);letter-spacing:.01em;margin:clamp(30px,5vw,44px) 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+p{font-size:16px;margin-bottom:14px;color:var(--ink)}
+p.small{font-size:13.5px;color:var(--muted);margin-top:28px}
+ul{list-style:none;margin:4px 0 14px}
+li{font-size:16px;padding:7px 0 7px 20px;position:relative}
+li::before{content:"";position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+[dir="rtl"] li{padding:7px 20px 7px 0}[dir="rtl"] li::before{left:auto;right:0}
+a.inl{color:var(--acc);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--acc) 45%,transparent)}
+a.inl:hover{border-bottom-color:var(--acc)}
+[data-lang]{display:none}
+</style>
+<script>try{var _t=localStorage.getItem("theme");if(_t==="dark"||(!_t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark");}catch(e){}</script>
+</head>
+<body>
+<header class="top">
+  <a class="back" href="./">&larr;&nbsp;Abed Barakat</a>
+  <div class="langs"><button data-l="en">EN</button><button data-l="it">IT</button></div>
+</header>
+<main class="doc">
+
+<!-- ============ ENGLISH ============ -->
+<div data-lang="en">
+  <span class="kicker">Privacy</span>
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: 7 July 2026</div>
+
+  <div class="tldr"><b>The short version.</b> No cookies. No analytics. No advertising. No third-party trackers. Fonts are served from this domain, not from Google. This site does not profile you. The only data involved is what your browser and the server exchange to load the page, plus anything you choose to send me by email.</div>
+
+  <h2>Who runs this site</h2>
+  <p>This is the personal portfolio of Abed Barakat, based in Crema (CR), Italy. For any question about this policy or your data, write to <a class="inl" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a>. For the purposes of the GDPR, I am the data controller for this site.</p>
+
+  <h2>Cookies &amp; tracking</h2>
+  <p>This site sets <b>no cookies</b> and runs <b>no analytics or advertising scripts</b>. The only thing stored in your browser is your theme (light/dark) and language preference, kept locally on your device so the site remembers your choice. That preference is never sent anywhere and is used for nothing else. Because it is strictly necessary to provide a feature you asked for, no consent banner is required.</p>
+
+  <h2>Fonts</h2>
+  <p>The typefaces (Archivo and Inter) are hosted on this domain. Loading a page makes <b>no request to Google Fonts or any third party</b>, so no external company receives your IP address when the page renders.</p>
+
+  <h2>Server logs</h2>
+  <p>The site is hosted on a DigitalOcean server behind the Caddy web server. Like any web server, it may briefly record standard technical request data — IP address, timestamp, the URL requested and your browser's user-agent — to keep the service running and secure. These logs are not used to identify or profile visitors and are retained only for a short time. Legal basis: legitimate interest in the security and operation of the site (GDPR Art. 6(1)(f)).</p>
+
+  <h2>Search indexing</h2>
+  <p>The domain is registered with Google Search Console so the site can appear in search results. Verification is done through DNS and relies on the server's own sitemap and logs — it places <b>no script, cookie or tracker</b> in your browser.</p>
+
+  <h2>If you email me</h2>
+  <p>The contact links open your own email app. If you write to me, I receive your email address and whatever you include, and I keep it only as long as needed to reply and for our correspondence. Mail sent to <a class="inl" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a> is forwarded to a personal Gmail inbox. I won't add you to any mailing list.</p>
+
+  <h2>Your rights</h2>
+  <p>Under the GDPR you can ask to access, correct or delete any personal data I hold about you — in practice, the emails you've sent me. Just write to <a class="inl" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a> and I'll take care of it.</p>
+
+  <h2>External links</h2>
+  <p>The site links out to places like GitHub and the live demo at lab.abedbarakat.me. Once you follow a link, the destination's own privacy policy applies.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the "last updated" date above changes with it.</p>
+
+  <p class="small">This is a plain-language summary written in good faith; it isn't legal advice.</p>
+</div>
+
+<!-- ============ ITALIANO ============ -->
+<div data-lang="it">
+  <span class="kicker">Privacy</span>
+  <h1>Informativa sulla privacy</h1>
+  <div class="updated">Ultimo aggiornamento: 7 luglio 2026</div>
+
+  <div class="tldr"><b>In breve.</b> Nessun cookie. Nessun sistema di analytics. Nessuna pubblicità. Nessun tracker di terze parti. I font sono serviti da questo dominio, non da Google. Questo sito non ti profila. Gli unici dati coinvolti sono quelli che il tuo browser e il server si scambiano per caricare la pagina, più ciò che scegli di inviarmi via email.</div>
+
+  <h2>Chi gestisce il sito</h2>
+  <p>Questo è il portfolio personale di Abed Barakat, con sede a Crema (CR), Italia. Per qualsiasi domanda su questa informativa o sui tuoi dati, scrivi a <a class="inl" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a>. Ai fini del GDPR, sono io il titolare del trattamento per questo sito.</p>
+
+  <h2>Cookie e tracciamento</h2>
+  <p>Questo sito non usa <b>alcun cookie</b> e non esegue <b>alcuno script di analytics o pubblicitario</b>. L'unica cosa salvata nel browser è la preferenza di tema (chiaro/scuro) e di lingua, conservata localmente sul tuo dispositivo perché il sito ricordi la tua scelta. Quella preferenza non viene mai inviata da nessuna parte e non serve ad altro. Trattandosi di un elemento strettamente necessario a fornire una funzione che hai richiesto, non è richiesto alcun banner di consenso.</p>
+
+  <h2>Font</h2>
+  <p>I caratteri (Archivo e Inter) sono ospitati su questo dominio. Caricare una pagina non genera <b>alcuna richiesta a Google Fonts o a terze parti</b>: nessuna azienda esterna riceve il tuo indirizzo IP quando la pagina viene mostrata.</p>
+
+  <h2>Log del server</h2>
+  <p>Il sito è ospitato su un server DigitalOcean dietro il web server Caddy. Come ogni web server, può registrare per breve tempo i dati tecnici standard di una richiesta — indirizzo IP, data e ora, URL richiesto e user-agent del browser — per mantenere il servizio attivo e sicuro. Questi log non sono usati per identificare o profilare i visitatori e sono conservati solo per un breve periodo. Base giuridica: legittimo interesse alla sicurezza e al funzionamento del sito (art. 6, par. 1, lett. f, GDPR).</p>
+
+  <h2>Indicizzazione sui motori</h2>
+  <p>Il dominio è registrato su Google Search Console affinché il sito compaia nei risultati di ricerca. La verifica avviene tramite DNS e si basa sulla sitemap e sui log del server: <b>non</b> inserisce <b>alcuno script, cookie o tracker</b> nel tuo browser.</p>
+
+  <h2>Se mi scrivi</h2>
+  <p>I link di contatto aprono la tua app di posta. Se mi scrivi, ricevo il tuo indirizzo email e ciò che includi, e lo conservo solo per il tempo necessario a risponderti e a gestire la nostra corrispondenza. La posta inviata a <a class="inl" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a> viene inoltrata a una casella Gmail personale. Non ti aggiungerò ad alcuna lista.</p>
+
+  <h2>I tuoi diritti</h2>
+  <p>In base al GDPR puoi chiedere di accedere, correggere o cancellare i dati personali che ti riguardano in mio possesso — in pratica, le email che mi hai inviato. Scrivi a <a class="inl" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a> e me ne occupo.</p>
+
+  <h2>Link esterni</h2>
+  <p>Il sito rimanda a destinazioni come GitHub e la demo live su lab.abedbarakat.me. Una volta seguito un link, si applica l'informativa privacy di quella destinazione.</p>
+
+  <h2>Modifiche</h2>
+  <p>Se questa informativa cambia, cambia con essa anche la data di "ultimo aggiornamento" qui sopra.</p>
+
+  <p class="small">Questo è un riassunto in linguaggio semplice, scritto in buona fede; non costituisce consulenza legale.</p>
+</div>
+
+</main>
+<script>
+(function(){
+  var btns=document.querySelectorAll(".langs button");
+  function apply(l){
+    if(l!=="it")l="en";
+    document.documentElement.lang=l;
+    document.documentElement.dir="ltr";
+    document.querySelectorAll("[data-lang]").forEach(function(d){d.style.display=(d.getAttribute("data-lang")===l)?"block":"none";});
+    btns.forEach(function(b){b.classList.toggle("on",b.getAttribute("data-l")===l);});
+    document.title=(l==="it")?"Privacy — Abed Barakat":"Privacy — Abed Barakat";
+  }
+  var saved=null;try{saved=localStorage.getItem("lang")}catch(e){}
+  apply(saved==="it"?"it":"en");
+  btns.forEach(function(b){b.onclick=function(){var l=b.getAttribute("data-l");apply(l);try{localStorage.setItem("lang",l)}catch(e){}};});
+})();
+</script>
+</body>
+</html>

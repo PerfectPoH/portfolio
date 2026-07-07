@@ -16,9 +16,9 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://abedbarakat.me/media/og.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="fonts/f03.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/f10.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts/fonts.css" />
 <style>
 :root{
   --bg:#ffffff;
@@ -395,6 +395,23 @@ html{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink) 30%,trans
 .ow-num{font-family:var(--body);font-size:11px;letter-spacing:.14em;color:var(--muted)}
 .ow-t{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(15px,1.6vw,19px);color:var(--ink)}
 .ow-c{font-family:var(--body);font-size:12.5px;color:var(--muted)}
+/* CONTACT */
+.contact{border-top:1px solid var(--line);margin:clamp(30px,7vw,90px) var(--pad) 0;padding:clamp(46px,7vw,90px) 0 clamp(30px,5vw,54px)}
+.ct-inner{max-width:940px}
+.ct-kicker{display:inline-block;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:13px;border-top:2px solid var(--ink)}
+.ct-head{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(40px,8.5vw,96px);line-height:1;letter-spacing:-.012em;color:var(--ink);margin:clamp(18px,2.6vw,26px) 0 clamp(20px,2.8vw,28px)}
+.ct-mail{display:inline-block;font-family:var(--head);font-weight:600;font-size:clamp(19px,4vw,42px);letter-spacing:-.01em;line-height:1.1;color:var(--ink);position:relative;padding-bottom:6px;word-break:break-word}
+.ct-mail::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.ct-mail:hover::after{transform:scaleX(1)}
+[dir="rtl"] .ct-mail::after{transform-origin:right}
+.ct-line{font-family:var(--body);font-size:clamp(15px,1.7vw,18px);line-height:1.55;color:var(--muted);max-width:48ch;margin-top:clamp(20px,2.6vw,26px)}
+.ct-avail{display:flex;align-items:center;gap:10px;margin-top:clamp(18px,2.4vw,24px);font-family:var(--body);font-size:14px;color:var(--ink)}
+.ct-dot{width:9px;height:9px;border-radius:50%;background:#2f9e63;flex:none;animation:pulse 2.6s ease-out infinite}
+.ct-dot.asleep{background:var(--muted);opacity:.55;animation:none}
+.ct-links{display:flex;flex-wrap:wrap;gap:26px;margin-top:clamp(24px,3vw,32px)}
+.footer .foot-links{justify-self:start;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+[dir="rtl"] .footer .foot-links{justify-self:end}
+@media(max-width:560px){.footer .foot-links{justify-self:center}}
 </style>
 <script>try{var _t=localStorage.getItem("theme");if(_t==="dark"||(!_t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark");}catch(e){}</script>
 </head>
@@ -424,10 +441,21 @@ Developer</h1>
 
   <section class="work" id="work"></section>
 
+  <section class="contact" id="contact">
+    <div class="ct-inner">
+      <span class="ct-kicker" data-i18n="contact.kicker">Get in touch</span>
+      <h2 class="ct-head" data-i18n="contact.head">Let's talk</h2>
+      <a class="ct-mail" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a>
+      <p class="ct-line" data-i18n="contact.line">Have an internship or a project in mind? I read every message myself.</p>
+      <div class="ct-avail"><span class="ct-dot" id="availDot"></span><span id="availTxt"></span></div>
+      <div class="ct-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" id="ctCv" data-i18n="about.cv" href="cv-en.pdf" download>Download CV (PDF)</a></div>
+    </div>
+  </section>
+
   <footer class="footer">
-    <a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a>
-    <div class="credit-wrap"><span class="credit" data-i18n="footer.credit">Designed & built by Abed Barakat — 2026</span><span class="clock" id="clock"></span><span class="colophon">No framework · No tracker · Type: Archivo &amp; Inter</span></div>
-    <a class="av-link" href="mailto:barakatabed687@gmail.com">Email</a>
+    <div class="foot-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="privacy.html" data-i18n="footer.privacy">Privacy</a></div>
+    <div class="credit-wrap"><span class="credit" data-i18n="footer.credit">Designed & built by Abed Barakat — 2026</span><span class="colophon">No framework · No tracker · Self-hosted Archivo &amp; Inter</span></div>
+    <a class="av-link" href="mailto:abed@abedbarakat.me">Email</a>
   </footer>
 </main>
 
@@ -468,7 +496,8 @@ T.en={_name:"EN",
   langs:"Arabic (native) · English (B2) · Italian · German · learning Mandarin"},
  ui:{back:"All work",viewGithub:"View on GitHub",liveDemo:"Live demo",privateRepo:"Private — available on request",
   role:"Role",year:"Year",context:"Context",stack:"Stack",highlights:"Highlights",nextProject:"Next project",otherWork:"Other work"},
- footer:{credit:"Designed & built by Abed Barakat — 2026"},
+ footer:{credit:"Designed & built by Abed Barakat — 2026",privacy:"Privacy"},
+ contact:{kicker:"Get in touch",head:"Let's talk",line:"Have an internship or a project in mind? I read every message myself — no bots, no CRM.",inCrema:"in Crema",availAwake:"awake now — usually a quick reply",availAsleep:"asleep right now — I'll reply once I'm up"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitative Research",role:"Research & infrastructure",context:"Personal research",
    desc:["A governed quant-research lab that turns each strategy idea into an auditable experiment — data gates, out-of-sample validation, transaction-cost realism, robustness checks and decision ledgers.","Its most important result isn't a profitable strategy: it's a system that repeatedly refuses to promote weak evidence."],
@@ -512,7 +541,8 @@ T.it={_name:"IT",
   langs:"Arabo (madrelingua) · Inglese (B2) · Italiano · Tedesco · sto imparando il mandarino"},
  ui:{back:"Tutti i lavori",viewGithub:"Vedi su GitHub",liveDemo:"Demo live",privateRepo:"Privato — disponibile su richiesta",
   role:"Ruolo",year:"Anno",context:"Contesto",stack:"Tecnologie",highlights:"In evidenza",nextProject:"Progetto successivo",otherWork:"Altri lavori"},
- footer:{credit:"Progettato e sviluppato da Abed Barakat — 2026"},
+ footer:{credit:"Progettato e sviluppato da Abed Barakat — 2026",privacy:"Privacy"},
+ contact:{kicker:"Contatti",head:"Parliamone",line:"Hai uno stage o un progetto in mente? Leggo ogni messaggio di persona — niente bot, niente CRM.",inCrema:"a Crema",availAwake:"sveglio adesso — di solito rispondo in fretta",availAsleep:"ora sto dormendo — rispondo appena mi sveglio"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Ricerca quantitativa",role:"Ricerca e infrastruttura",context:"Ricerca personale",
    desc:["Un laboratorio di ricerca quantitativa governato che trasforma ogni idea di strategia in un esperimento verificabile — controlli sui dati, validazione out-of-sample, realismo dei costi di transazione, test di robustezza e registri delle decisioni.","Il risultato più importante non è una strategia redditizia: è un sistema che si rifiuta ripetutamente di promuovere prove deboli."],
@@ -553,7 +583,8 @@ T.de={_name:"DE",
   langs:"Arabisch (Muttersprache) · Englisch (B2) · Italienisch · Deutsch · lernt Mandarin"},
  ui:{back:"Alle Arbeiten",viewGithub:"Auf GitHub ansehen",liveDemo:"Live-Demo",privateRepo:"Privat — auf Anfrage verfügbar",
   role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächstes Projekt",otherWork:"Weitere Arbeiten"},
- footer:{credit:"Gestaltet & entwickelt von Abed Barakat — 2026"},
+ footer:{credit:"Gestaltet & entwickelt von Abed Barakat — 2026",privacy:"Datenschutz"},
+ contact:{kicker:"Kontakt",head:"Reden wir",line:"Ein Praktikum oder Projekt im Kopf? Ich lese jede Nachricht selbst — keine Bots, kein CRM.",inCrema:"in Crema",availAwake:"gerade wach — meist schnelle Antwort",availAsleep:"schläft gerade — Antwort, sobald ich wach bin"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitative Forschung",role:"Forschung & Infrastruktur",context:"Eigene Forschung",
    desc:["Ein kontrolliertes Quant-Forschungslabor, das jede Strategie-Idee in ein überprüfbares Experiment verwandelt — Daten-Gates, Out-of-Sample-Validierung, realistische Transaktionskosten, Robustheitsprüfungen und Entscheidungsprotokolle.","Das wichtigste Ergebnis ist keine profitable Strategie, sondern ein System, das schwache Evidenz immer wieder zurückweist."],
@@ -594,7 +625,8 @@ T.ar={_name:"ع",
   langs:"العربية (لغة أم) · الإنجليزية (B2) · الإيطالية · الألمانية · أتعلّم الماندرين"},
  ui:{back:"كل الأعمال",viewGithub:"عرض على GitHub",liveDemo:"عرض حي",privateRepo:"خاص — متاح عند الطلب",
   role:"الدور",year:"السنة",context:"السياق",stack:"التقنيات",highlights:"أبرز النقاط",nextProject:"المشروع التالي",otherWork:"أعمال أخرى"},
- footer:{credit:"تصميم وتطوير عبد الرحمن بركات — 2026"},
+ footer:{credit:"تصميم وتطوير عبد الرحمن بركات — 2026",privacy:"الخصوصية"},
+ contact:{kicker:"تواصل معي",head:"لنتحدّث",line:"لديك تدريب أو مشروع في بالك؟ أقرأ كل رسالة بنفسي — بلا روبوتات ولا CRM.",inCrema:"في كريما",availAwake:"مستيقظ الآن — ردّي عادةً سريع",availAsleep:"نائم الآن — سأردّ حالما أستيقظ"},
  p:{
   "adaptive-equity-trading-lab":{cat:"أبحاث كمّية",role:"بحث وبنية تحتية",context:"بحث شخصي",
    desc:["مختبر أبحاث كمّية محكوم يحوّل كل فكرة استراتيجية إلى تجربة قابلة للتدقيق — بوابات بيانات، وتحقّق خارج العيّنة، وواقعية تكاليف التداول، واختبارات متانة، وسجلّات قرار.","أهمّ نتيجة ليست استراتيجية مربحة، بل نظام يرفض مرارًا الترويج للأدلة الضعيفة."],
@@ -635,7 +667,8 @@ T.ch={_name:"CH",
   langs:"Arabisch (Muetersproch) · Änglisch (B2) · Italienisch · Dütsch · lernt grad Mandarin"},
  ui:{back:"Alli Projäkt",viewGithub:"Uf GitHub aaluege",liveDemo:"Live-Demo",privateRepo:"Privat — uf Aafrog verfüegbar",
   role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächschts Projäkt",otherWork:"Anderi Arbeite"},
- footer:{credit:"Gstaltet & buut vom Abed Barakat — 2026"},
+ footer:{credit:"Gstaltet & buut vom Abed Barakat — 2026",privacy:"Dateschutz"},
+ contact:{kicker:"Kontakt",head:"Rede mer",line:"Es Praktikum oder es Projäkt im Chopf? Ich lise jedi Nochricht sälber — kei Bots, kes CRM.",inCrema:"z Crema",availAwake:"grad wach — antwortet meist schnäll",availAsleep:"schlaft grad — Antwort, sobald ich wach bi"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitativi Forschig",role:"Forschig & Infrastruktur",context:"Eiges Projäkt",
    desc:["Es kontrollierts Quant-Forschigs-Labor wo jedi Strategie-Idee i nes überprüefbars Experimänt verwandlet — Date-Gates, Out-of-Sample-Validierig, realistischi Transaktionschöste, Robustheits-Checks und Entscheidigs-Protokoll.","S wichtigschte Resultat isch kei profitabli Strategie, sondern es Systeem wo schwachi Evidänz immer wieder zruggwiist."],
@@ -757,7 +790,7 @@ function renderAboutView(){
   +'<div class="av-meta">'
   +'<div class="blk av-rev" style="--d:.5s"><div class="lbl">'+A.focusLabel+'</div><ul>'+(A.focus||[]).map(f=>'<li>'+f+'</li>').join("")+'</ul></div>'
   +'<div class="blk av-rev" style="--d:.58s"><div class="lbl">'+A.langLabel+'</div><div class="langline">'+A.langs+'</div></div>'
-  +'<div class="blk av-rev" style="--d:.66s"><div class="lbl">'+A.contactLabel+'</div><div class="av-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="mailto:barakatabed687@gmail.com">Email</a><a class="av-link" href="'+(lang==="it"?"cv-it.pdf":"cv-en.pdf")+'" download>'+(A.cv||"CV (PDF)")+'</a></div></div>'
+  +'<div class="blk av-rev" style="--d:.66s"><div class="lbl">'+A.contactLabel+'</div><div class="av-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="mailto:abed@abedbarakat.me">Email</a><a class="av-link" href="'+(lang==="it"?"cv-it.pdf":"cv-en.pdf")+'" download>'+(A.cv||"CV (PDF)")+'</a></div></div>'
   +'</div>'
   +'<svg class="sig av-rev" style="--d:.7s" viewBox="0 0 240 90" aria-hidden="true"><path d="M22,64 C14,44 30,18 40,24 C50,30 36,58 28,66 C40,56 48,50 56,52 M64,22 C60,40 58,54 58,62 C64,50 76,46 77,54 C78,62 66,68 61,62 M88,56 C98,54 102,46 95,45 C88,44 84,54 90,60 C96,64 104,60 108,56 M136,20 C130,40 127,54 127,62 C132,50 142,44 145,52 C147,59 138,66 131,60"/><path d="M16,78 C70,86 150,82 224,64"/></svg>'
   +'</div></div>';
@@ -768,6 +801,7 @@ function applyStatic(){
  document.title="Abed Barakat — "+sub;
  document.documentElement.lang=(lang==="ch")?"gsw":lang;
  document.documentElement.dir=(lang==="ar")?"rtl":"ltr";
+ const cv=document.getElementById("ctCv");if(cv)cv.setAttribute("href",(lang==="it")?"cv-it.pdf":"cv-en.pdf");
 }
 /* ============ DETAIL ============ */
 let _curProj=null,_vplayNext=false;
@@ -879,12 +913,17 @@ function bindTheme(){
  b.onclick=()=>{const d=document.documentElement.classList.toggle("dark");try{localStorage.setItem("theme",d?"dark":"light")}catch(e){}};
 }
 function tickClock(){
- const el=document.getElementById("clock");if(!el)return;
+ const txt=document.getElementById("availTxt"),dot=document.getElementById("availDot");
+ if(!txt&&!dot)return;
  const loc=(lang==="ch")?"de-CH":lang;
- let s="";
- try{s=new Intl.DateTimeFormat(loc,{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Rome",timeZoneName:"short"}).format(new Date())}
- catch(e){s=new Date().toLocaleTimeString()}
- el.textContent="Crema, IT · "+s;
+ let s="",h=13;
+ try{
+  s=new Intl.DateTimeFormat(loc,{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Rome"}).format(new Date());
+  h=parseInt(new Intl.DateTimeFormat("en-GB",{hour:"2-digit",hour12:false,timeZone:"Europe/Rome"}).format(new Date()),10);
+ }catch(e){const d=new Date();s=d.toLocaleTimeString();h=d.getHours();}
+ const awake=(h>=8&&h<24);
+ if(dot)dot.classList.toggle("asleep",!awake);
+ if(txt)txt.textContent=s+" "+tr("contact.inCrema")+" · "+tr(awake?"contact.availAwake":"contact.availAsleep");
 }
 function bindHeroCycle(){
  const h=document.querySelector(".hero h1");if(!h||REDUCE)return;
@@ -954,7 +993,7 @@ function initCursor(){
 }
 try{
  console.log("%cAB%c Abed Barakat — portfolio","background:#15140f;color:#fff;font:700 13px/1.9 sans-serif;padding:2px 9px;border-radius:5px","font:12px sans-serif;padding-left:8px;color:inherit");
- console.log("Curious about the code? → https://github.com/PerfectPoH\nHiring? → barakatabed687@gmail.com");
+ console.log("Curious about the code? → https://github.com/PerfectPoH\nHiring? → abed@abedbarakat.me");
 }catch(e){}
 /* ============ LANG / NAV / INIT ============ */
 function setLang(l){
