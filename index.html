@@ -921,7 +921,7 @@ function tickClock(){
   s=new Intl.DateTimeFormat(loc,{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Rome"}).format(new Date());
   h=parseInt(new Intl.DateTimeFormat("en-GB",{hour:"2-digit",hour12:false,timeZone:"Europe/Rome"}).format(new Date()),10);
  }catch(e){const d=new Date();s=d.toLocaleTimeString();h=d.getHours();}
- const awake=(h>=8&&h<24);
+ const awake=(h>=9&&h<22);
  if(dot)dot.classList.toggle("asleep",!awake);
  if(txt)txt.textContent=s+" "+tr("contact.inCrema")+" · "+tr(awake?"contact.availAwake":"contact.availAsleep");
 }
