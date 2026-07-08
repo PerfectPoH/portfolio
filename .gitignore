@@ -2,3 +2,5 @@
 .DS_Store
 *.log
 downloads/
+cv-build-*.html
+cv-*-new.pdf
