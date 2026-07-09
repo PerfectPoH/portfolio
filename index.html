@@ -16,9 +16,7 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://abedbarakat.me/media/og.jpg" />
-<link rel="preload" href="fonts/f03.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="fonts/f10.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="fonts/fonts.css" />
+<link href="fonts/fonts.css" rel="stylesheet" />
 <style>
 :root{
   --bg:#ffffff;
@@ -63,13 +61,11 @@ a{color:inherit;text-decoration:none}
 .hero h1{font-family:var(--head);text-transform:uppercase;font-weight:700;
   font-size:clamp(40px,8.7vw,96px);line-height:1.03;letter-spacing:-.005em;white-space:pre-line;color:var(--ink)}
 .hero .loc{font-family:var(--body);font-size:clamp(14px,1.5vw,17px);margin-top:clamp(18px,2.6vw,28px);color:var(--ink);opacity:.92}
-.hero .tagline{font-family:var(--head);text-transform:uppercase;font-weight:600;font-size:clamp(12.5px,1.5vw,15px);letter-spacing:.02em;line-height:1.5;color:#2f7d62;margin-top:clamp(16px,2.2vw,22px);max-width:36ch}
-html.dark .hero .tagline{color:color-mix(in srgb,#2f7d62 42%,#e9e6dd)}
 /* scroll cue removed */
 
 /* WORK (vertical stacked full-width blocks) */
 .work{padding:clamp(10px,4vw,40px) var(--pad) clamp(40px,8vw,90px)}
-.work-item{display:block;cursor:pointer;margin-bottom:clamp(120px,34vh,360px)}
+.work-item{display:block;cursor:pointer;margin-bottom:clamp(160px,45vh,480px)}
 .work-item:last-child{margin-bottom:0}
 .thumb{position:relative;width:100%;aspect-ratio:2/1;overflow:hidden;background:var(--card);isolation:isolate}
 .thumb .open{position:absolute;bottom:20px;right:22px;z-index:6;width:46px;height:46px;border-radius:50%;
@@ -308,12 +304,11 @@ body.about-open #about-view{display:block}
 .thumb .idx{position:absolute;top:16px;left:18px;z-index:8;font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:.16em;color:#fff;mix-blend-mode:difference;opacity:.85}
 [dir="rtl"] .thumb .idx{left:auto;right:18px}
 /* hero entrance (in sequenza dopo il preloader) */
-.hero .eyebrow,.hero h1,.hero .tagline,.hero .loc,.hero .status{animation:heroIn .85s cubic-bezier(.2,.7,.2,1) both}
+.hero .eyebrow,.hero h1,.hero .loc,.hero .status{animation:heroIn .85s cubic-bezier(.2,.7,.2,1) both}
 .hero .eyebrow{animation-delay:.5s}
 .hero h1{animation-delay:.62s}
-.hero .tagline{animation-delay:.74s}
-.hero .loc{animation-delay:.84s}
-.hero .status{animation-delay:.96s}
+.hero .loc{animation-delay:.78s}
+.hero .status{animation-delay:.92s}
 @keyframes heroIn{from{opacity:0;transform:translateY(26px);filter:blur(7px)}to{opacity:1;transform:none;filter:none}}
 /* marquee */
 .marquee{overflow:hidden;direction:ltr;margin:0 var(--pad) clamp(34px,6vw,72px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0}
@@ -398,29 +393,23 @@ html{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink) 30%,trans
 .ow-num{font-family:var(--body);font-size:11px;letter-spacing:.14em;color:var(--muted)}
 .ow-t{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(15px,1.6vw,19px);color:var(--ink)}
 .ow-c{font-family:var(--body);font-size:12.5px;color:var(--muted)}
-/* CONTACT */
-.contact{border-top:1px solid var(--line);margin:clamp(30px,7vw,90px) var(--pad) 0;padding:clamp(46px,7vw,90px) 0 clamp(30px,5vw,54px)}
-.ct-inner{max-width:1040px;display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
-@media(max-width:760px){.ct-inner{grid-template-columns:1fr;gap:34px}.ct-side{margin-top:0}}
-.ct-side{display:flex;flex-direction:column;margin-top:clamp(64px,9vw,120px)}
-.ct-block{border-top:1px solid var(--line);padding:16px 0}
-.ct-blabel{font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.ct-block .ct-avail{margin-top:0}
-.ct-side .ct-links{margin-top:0;flex-direction:column;gap:11px}
-.ct-kicker{display:inline-block;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:13px;border-top:2px solid var(--ink)}
-.ct-head{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(40px,8.5vw,96px);line-height:1;letter-spacing:-.012em;color:var(--ink);margin:clamp(18px,2.6vw,26px) 0 clamp(20px,2.8vw,28px)}
-.ct-mail{display:inline-block;font-family:var(--head);font-weight:600;font-size:clamp(19px,4vw,42px);letter-spacing:-.01em;line-height:1.1;color:var(--ink);position:relative;padding-bottom:6px;word-break:break-word}
-.ct-mail::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.7,0,.2,1)}
-.ct-mail:hover::after{transform:scaleX(1)}
-[dir="rtl"] .ct-mail::after{transform-origin:right}
-.ct-line{font-family:var(--body);font-size:clamp(15px,1.7vw,18px);line-height:1.55;color:var(--muted);max-width:48ch;margin-top:clamp(20px,2.6vw,26px)}
-.ct-avail{display:flex;align-items:center;gap:10px;margin-top:clamp(18px,2.4vw,24px);font-family:var(--body);font-size:14px;color:var(--ink)}
-.ct-dot{width:9px;height:9px;border-radius:50%;background:#2f9e63;flex:none;animation:pulse 2.6s ease-out infinite}
-.ct-dot.asleep{background:var(--muted);opacity:.55;animation:none}
-.ct-links{display:flex;flex-wrap:wrap;gap:26px;margin-top:clamp(24px,3vw,32px)}
-.footer .foot-links{justify-self:start;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
-[dir="rtl"] .footer .foot-links{justify-self:end}
-@media(max-width:560px){.footer .foot-links{justify-self:center}}
+/* contact */
+.contact{margin:clamp(80px,14vh,160px) var(--pad) 0;border-top:3px solid var(--ink);padding:clamp(46px,7vh,80px) 0 clamp(70px,10vh,110px);text-align:center}
+.c-kicker{font-family:var(--body);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.c-title{font-family:var(--head);text-transform:uppercase;font-weight:700;font-size:clamp(28px,5vw,56px);letter-spacing:-.01em;margin:18px auto 28px;max-width:20ch;line-height:1.08}
+.c-mail{display:inline-block;font-family:var(--head);font-weight:700;font-size:clamp(19px,3.2vw,38px);color:var(--ink);border-bottom:3px solid var(--ink);padding-bottom:6px;letter-spacing:-.01em;transition:opacity .25s;overflow-wrap:anywhere}
+.c-mail:hover{opacity:.55}
+.c-status{margin-top:28px;display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:clamp(13px,1.4vw,15px);color:var(--muted)}
+.c-dot{width:9px;height:9px;border-radius:50%;background:#2f9e63;flex:none;animation:pulse 2.4s ease-out infinite}
+.c-dot.zzz{background:var(--muted);animation:none}
+/* privacy view */
+#privacy-view{display:none;min-height:100svh;padding:104px var(--pad) 70px;animation:viewin .45s ease}
+body.privacy-open #home,body.privacy-open #detail,body.privacy-open #about-view{display:none}
+body.privacy-open #privacy-view{display:block}
+.priv-wrap{max-width:760px}
+.priv-upd{font-family:var(--body);font-size:13px;color:var(--muted);margin:6px 0 26px}
+.priv-wrap h3{font-family:var(--head);text-transform:uppercase;font-size:clamp(16px,1.8vw,20px);margin:26px 0 8px;border-top:1px solid var(--line);padding-top:18px}
+.priv-wrap p{font-family:var(--body);font-size:15px;line-height:1.65;color:var(--ink)}
 </style>
 <script>try{var _t=localStorage.getItem("theme");if(_t==="dark"||(!_t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark");}catch(e){}</script>
 </head>
@@ -442,7 +431,6 @@ html{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink) 30%,trans
     <div class="eyebrow" data-i18n="hero.eyebrow">Abed Barakat</div>
     <h1 data-i18n="hero.title">Software
 Developer</h1>
-    <div class="tagline" data-i18n="hero.tagline">Quantitative research · Full-stack systems · Computer vision</div>
     <div class="loc" data-i18n="hero.loc">Based in Italy</div>
     <div class="status" data-i18n="hero.status">CS student @ Politecnico di Milano · open to internships</div>
   </header>
@@ -452,35 +440,22 @@ Developer</h1>
   <section class="work" id="work"></section>
 
   <section class="contact" id="contact">
-    <div class="ct-inner">
-      <div class="ct-left">
-        <span class="ct-kicker" data-i18n="contact.kicker">Get in touch</span>
-        <h2 class="ct-head" data-i18n="contact.head">Let's talk</h2>
-        <a class="ct-mail" data-email href="#"></a>
-        <p class="ct-line" data-i18n="contact.line">Have an internship or a project in mind? I read every message myself.</p>
-      </div>
-      <aside class="ct-side">
-        <div class="ct-block">
-          <div class="ct-blabel" data-i18n="contact.availLabel">Availability</div>
-          <div class="ct-avail"><span class="ct-dot" id="availDot"></span><span id="availTxt"></span></div>
-        </div>
-        <div class="ct-block">
-          <div class="ct-blabel" data-i18n="contact.linksLabel">Links</div>
-          <div class="ct-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="https://www.linkedin.com/in/abed-alrahman-barakat-16aa593ba/" target="_blank" rel="noopener">LinkedIn</a><a class="av-link" id="ctCv" data-i18n="about.cv" href="cv-en.pdf" download>Download CV (PDF)</a></div>
-        </div>
-      </aside>
-    </div>
+    <div class="c-kicker" data-i18n="contact.kicker">Get in touch</div>
+    <h2 class="c-title" data-i18n="contact.title">Have an internship or a project in mind?</h2>
+    <a class="c-mail" href="mailto:abed@abedbarakat.me">abed@abedbarakat.me</a>
+    <div class="c-status"><span class="c-dot"></span><span id="awake"></span></div>
   </section>
 
   <footer class="footer">
-    <div class="foot-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="https://www.linkedin.com/in/abed-alrahman-barakat-16aa593ba/" target="_blank" rel="noopener">LinkedIn</a><a class="av-link" href="privacy.html" data-i18n="footer.privacy">Privacy</a></div>
-    <div class="credit-wrap"><span class="credit" data-i18n="footer.credit">Designed & built by Abed Barakat — 2026</span><span class="colophon">No framework · No tracker · Self-hosted Archivo &amp; Inter</span></div>
-    <a class="av-link" data-email-link href="#">Email</a>
+    <a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a>
+    <div class="credit-wrap"><span class="credit" data-i18n="footer.credit">Designed & built by Abed Barakat — 2026</span><span class="clock" id="clock"></span><span class="colophon">No framework · No tracker · Type: Archivo &amp; Inter · <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy</a></span></div>
+    <a class="av-link" href="mailto:abed@abedbarakat.me">Email</a>
   </footer>
 </main>
 
 <section id="detail"></section>
 <section id="about-view"></section>
+<section id="privacy-view"></section>
 <div id="wipe" aria-hidden="true"></div>
 
 <script>
@@ -488,8 +463,7 @@ Developer</h1>
 const PROJECTS=[
  {id:"adaptive-equity-trading-lab",pvc:"#2f7d62",pv:"trade",year:"2025",stack:["Python","Streamlit","pandas","Statistics"],github:"https://github.com/PerfectPoH/adaptive-equity-trading-lab",demo:"https://lab.abedbarakat.me",banner:"media/tradinglab-banner.png"},
  {id:"soresina-mercati",pvc:"#c2532b",pv:"stalls",year:"2025",stack:["Next.js 14","Supabase","PostgreSQL","Leaflet","Tailwind"],github:"https://github.com/PerfectPoH/soresina-mercati",video:"media/soresina-trailer.mp4",banner:"media/mercati-soresina.webp"},
- // HIDDEN until release — uncomment this line to re-enable the Cephalometric project:
- // {id:"cephalometric-landmark-detector",pvc:"#3b6ea5",pv:"ceph",year:"2024–25",stack:["C#","EmguCV","WinForms","OpenCV"],github:"https://github.com/PerfectPoH/cephalometric-landmark-detector",private:true,video:"media/ceph-trailer.mp4",banner:"media/ceph-banner.webp"},
+ {id:"cephalometric-landmark-detector",pvc:"#3b6ea5",pv:"ceph",year:"2024–25",stack:["C#","EmguCV","WinForms","OpenCV"],github:"https://github.com/PerfectPoH/cephalometric-landmark-detector",private:true,video:"media/ceph-trailer.mp4",banner:"media/ceph-banner.webp"},
  {id:"java-chess-rmi",pvc:"#6b4f8a",pv:"chess",year:"2024",stack:["Java","Swing","Java RMI"],github:"https://github.com/PerfectPoH/java-chess-rmi",video:"media/gambeat-trailer.mp4",banner:"media/gambeat.webp"},
  {id:"java-tic-tac-toe-deluxe",pvc:"#c0922b",pv:"ttt",year:"2024",stack:["Java","Swing","Java Sound"],github:"https://github.com/PerfectPoH/java-tic-tac-toe-deluxe",banner:"media/tictactoe-banner.png",video:"media/tictactoe.mp4",download:"downloads/tictactoe.zip"},
  {id:"pizzeria-ordering-system",pvc:"#b5462f",pv:"pizza",year:"2024",stack:["Java","Swing","Sockets"],github:"https://github.com/PerfectPoH/pizzeria-ordering-system",video:"media/pizzeria-trailer.mp4",banner:"media/pizzeria-banner.webp"},
@@ -508,7 +482,16 @@ const TITLES={
 const T={};
 T.en={_name:"EN",
  nav:{work:"Work",about:"About"},
- hero:{eyebrow:"Abed Barakat",title:"Software\nDeveloper",tagline:"Quantitative research · Full-stack systems · Computer vision",loc:"Based in Italy",scroll:"Work",status:"CS student @ Politecnico di Milano · open to internships"},
+ hero:{eyebrow:"Abed Barakat",title:"Software\nDeveloper",loc:"Based in Italy",scroll:"Work",status:"CS student @ Politecnico di Milano · open to internships"},
+ contact:{kicker:"Get in touch",title:"Have an internship or a project in mind?",
+  awake:"It's {t} for me — probably awake, write me now.",asleep:"It's {t} for me — probably asleep, I'll reply in the morning."},
+ privacy:{title:"Privacy",updated:"Last updated: July 7, 2026",sections:[
+  ["Who I am","This is the personal portfolio of Abed Alrahman Barakat. For anything related to your data, write to abed@abedbarakat.me."],
+  ["Browsing data","The web server (Caddy, hosted on DigitalOcean, Frankfurt — EU) records standard technical logs such as IP address, user agent and request time. They are used only to keep the site working and secure, and are kept for a short period."],
+  ["Cookies & trackers","This site sets no profiling cookies and uses no third-party analytics. The only stored values are your theme and language preferences, saved in your browser's localStorage: they never leave your device and contain no personal data."],
+  ["Fonts & assets","All fonts and media are served directly from this domain. No request is made to third-party CDNs while you browse."],
+  ["Contact","If you email me, the data you provide is used only to reply to you and is not shared with anyone."],
+  ["Your rights","Under the GDPR you can request access, rectification or deletion of any personal data concerning you by writing to abed@abedbarakat.me."]]},
  about:{heading:"About",focusLabel:"Focus",langLabel:"Languages",contactLabel:"Get in touch",cv:"Download CV (PDF)",
   body:["I'm a developer who cares more about what survives scrutiny than what looks good in a demo.",
   "Based in Crema, Italy and studying Computer Science at Politecnico di Milano, I work across quantitative research, full-stack web, computer vision and classic systems programming — from a multiplayer chess engine to a civic booking platform running for a real local organization.",
@@ -517,8 +500,7 @@ T.en={_name:"EN",
   langs:"Arabic (native) · English (B2) · Italian · German · learning Mandarin"},
  ui:{back:"All work",viewGithub:"View on GitHub",liveDemo:"Live demo",privateRepo:"Private — available on request",
   role:"Role",year:"Year",context:"Context",stack:"Stack",highlights:"Highlights",nextProject:"Next project",otherWork:"Other work"},
- footer:{credit:"Designed & built by Abed Barakat — 2026",privacy:"Privacy"},
- contact:{kicker:"Get in touch",head:"Let's talk",availLabel:"Availability",linksLabel:"Links",line:"Have an internship or a project in mind? I read every message myself — no bots, no CRM.",inCrema:"in Crema",availAwake:"awake now — usually a quick reply",availAsleep:"asleep right now — I'll reply once I'm up"},
+ footer:{credit:"Designed & built by Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitative Research",role:"Research & infrastructure",context:"Personal research",
    desc:["A governed quant-research lab that turns each strategy idea into an auditable experiment — data gates, out-of-sample validation, transaction-cost realism, robustness checks and decision ledgers.","Its most important result isn't a profitable strategy: it's a system that repeatedly refuses to promote weak evidence."],
@@ -553,7 +535,16 @@ const LANG_ORDER=["en","it","de","ar","ch"];
 <script id="i18n-extra">
 T.it={_name:"IT",
  nav:{work:"Lavori",about:"Chi sono"},
- hero:{eyebrow:"Abed Barakat",title:"Sviluppatore\nSoftware",tagline:"Ricerca quantitativa · Sistemi full-stack · Visione artificiale",loc:"Con base in Italia",scroll:"Lavori",status:"Studente di Informatica @ Politecnico di Milano · disponibile per stage"},
+ hero:{eyebrow:"Abed Barakat",title:"Sviluppatore\nSoftware",loc:"Con base in Italia",scroll:"Lavori",status:"Studente di Informatica @ Politecnico di Milano · disponibile per stage"},
+ contact:{kicker:"Contattami",title:"Hai uno stage o un progetto in mente?",
+  awake:"Da me sono le {t} — probabilmente sono sveglio, scrivimi pure.",asleep:"Da me sono le {t} — probabilmente dormo, rispondo domattina."},
+ privacy:{title:"Privacy",updated:"Ultimo aggiornamento: 7 luglio 2026",sections:[
+  ["Chi sono","Questo è il portfolio personale di Abed Alrahman Barakat. Per qualsiasi cosa riguardi i tuoi dati scrivi a abed@abedbarakat.me."],
+  ["Dati di navigazione","Il server web (Caddy, su DigitalOcean, Francoforte — UE) registra i normali log tecnici: indirizzo IP, user agent e orario della richiesta. Servono solo al funzionamento e alla sicurezza del sito e vengono conservati per un periodo breve."],
+  ["Cookie e tracker","Questo sito non usa cookie di profilazione né analytics di terze parti. Gli unici valori salvati sono le preferenze di tema e lingua, nel localStorage del tuo browser: non lasciano mai il tuo dispositivo e non contengono dati personali."],
+  ["Font e risorse","Tutti i font e i media sono serviti direttamente da questo dominio. Durante la navigazione non parte nessuna richiesta verso CDN di terze parti."],
+  ["Contatti","Se mi scrivi via email, i dati che fornisci vengono usati solo per risponderti e non sono condivisi con nessuno."],
+  ["I tuoi diritti","Ai sensi del GDPR puoi chiedere accesso, rettifica o cancellazione dei dati personali che ti riguardano scrivendo a abed@abedbarakat.me."]]},
  about:{heading:"Chi sono",focusLabel:"Aree",langLabel:"Lingue",contactLabel:"Contatti",cv:"Scarica il CV (PDF)",
   body:["Sono uno sviluppatore a cui interessa più ciò che regge alla prova dei fatti che ciò che fa scena in una demo.",
   "Vivo a Crema e studio Informatica al Politecnico di Milano. Lavoro tra ricerca quantitativa, web full-stack, visione artificiale e programmazione di sistema classica — da un motore di scacchi multiplayer a una piattaforma di prenotazioni civica usata da un'organizzazione locale reale.",
@@ -562,8 +553,7 @@ T.it={_name:"IT",
   langs:"Arabo (madrelingua) · Inglese (B2) · Italiano · Tedesco · sto imparando il mandarino"},
  ui:{back:"Tutti i lavori",viewGithub:"Vedi su GitHub",liveDemo:"Demo live",privateRepo:"Privato — disponibile su richiesta",
   role:"Ruolo",year:"Anno",context:"Contesto",stack:"Tecnologie",highlights:"In evidenza",nextProject:"Progetto successivo",otherWork:"Altri lavori"},
- footer:{credit:"Progettato e sviluppato da Abed Barakat — 2026",privacy:"Privacy"},
- contact:{kicker:"Contatti",head:"Parliamone",availLabel:"Disponibilità",linksLabel:"Link",line:"Hai uno stage o un progetto in mente? Leggo ogni messaggio di persona — niente bot, niente CRM.",inCrema:"a Crema",availAwake:"sveglio adesso — di solito rispondo in fretta",availAsleep:"ora sto dormendo — rispondo appena mi sveglio"},
+ footer:{credit:"Progettato e sviluppato da Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Ricerca quantitativa",role:"Ricerca e infrastruttura",context:"Ricerca personale",
    desc:["Un laboratorio di ricerca quantitativa governato che trasforma ogni idea di strategia in un esperimento verificabile — controlli sui dati, validazione out-of-sample, realismo dei costi di transazione, test di robustezza e registri delle decisioni.","Il risultato più importante non è una strategia redditizia: è un sistema che si rifiuta ripetutamente di promuovere prove deboli."],
@@ -595,7 +585,9 @@ T.it={_name:"IT",
  }};
 T.de={_name:"DE",
  nav:{work:"Arbeiten",about:"Über mich"},
- hero:{eyebrow:"Abed Barakat",title:"Software-\nEntwickler",tagline:"Quantitative Forschung · Full-Stack-Systeme · Computer Vision",loc:"Mit Sitz in Italien",scroll:"Arbeiten",status:"Informatik-Student @ Politecnico di Milano · offen für Praktika"},
+ hero:{eyebrow:"Abed Barakat",title:"Software-\nEntwickler",loc:"Mit Sitz in Italien",scroll:"Arbeiten",status:"Informatik-Student @ Politecnico di Milano · offen für Praktika"},
+ contact:{kicker:"Kontakt",title:"Ein Praktikum oder ein Projekt im Kopf?",
+  awake:"Bei mir ist es {t} — wahrscheinlich bin ich wach, schreib mir.",asleep:"Bei mir ist es {t} — wahrscheinlich schlafe ich, Antwort kommt am Morgen."},
  about:{heading:"Über mich",focusLabel:"Schwerpunkte",langLabel:"Sprachen",contactLabel:"Kontakt",cv:"Lebenslauf (PDF)",
   body:["Ich bin ein Entwickler, dem wichtiger ist, was einer Prüfung standhält, als was in einer Demo gut aussieht.",
   "Ich lebe in Crema, Italien, und studiere Informatik am Politecnico di Milano. Ich arbeite zwischen quantitativer Forschung, Full-Stack-Web, Computer Vision und klassischer Systemprogrammierung — von einer Multiplayer-Schach-Engine bis zu einer kommunalen Buchungsplattform, die für eine echte lokale Organisation läuft.",
@@ -604,8 +596,7 @@ T.de={_name:"DE",
   langs:"Arabisch (Muttersprache) · Englisch (B2) · Italienisch · Deutsch · lernt Mandarin"},
  ui:{back:"Alle Arbeiten",viewGithub:"Auf GitHub ansehen",liveDemo:"Live-Demo",privateRepo:"Privat — auf Anfrage verfügbar",
   role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächstes Projekt",otherWork:"Weitere Arbeiten"},
- footer:{credit:"Gestaltet & entwickelt von Abed Barakat — 2026",privacy:"Datenschutz"},
- contact:{kicker:"Kontakt",head:"Reden wir",availLabel:"Verfügbarkeit",linksLabel:"Links",line:"Ein Praktikum oder Projekt im Kopf? Ich lese jede Nachricht selbst — keine Bots, kein CRM.",inCrema:"in Crema",availAwake:"gerade wach — meist schnelle Antwort",availAsleep:"schläft gerade — Antwort, sobald ich wach bin"},
+ footer:{credit:"Gestaltet & entwickelt von Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitative Forschung",role:"Forschung & Infrastruktur",context:"Eigene Forschung",
    desc:["Ein kontrolliertes Quant-Forschungslabor, das jede Strategie-Idee in ein überprüfbares Experiment verwandelt — Daten-Gates, Out-of-Sample-Validierung, realistische Transaktionskosten, Robustheitsprüfungen und Entscheidungsprotokolle.","Das wichtigste Ergebnis ist keine profitable Strategie, sondern ein System, das schwache Evidenz immer wieder zurückweist."],
@@ -637,7 +628,9 @@ T.de={_name:"DE",
  }};
 T.ar={_name:"ع",
  nav:{work:"الأعمال",about:"نبذة"},
- hero:{eyebrow:"عبد الرحمن بركات",title:"مُطوِّر\nبرمجيات",tagline:"أبحاث كمّية · أنظمة full-stack · رؤية حاسوبية",loc:"مقيم في إيطاليا",scroll:"الأعمال",status:"طالب علوم حاسوب في بوليتكنيكو دي ميلانو · متاح للتدريب"},
+ hero:{eyebrow:"عبد الرحمن بركات",title:"مُطوِّر\nبرمجيات",loc:"مقيم في إيطاليا",scroll:"الأعمال",status:"طالب علوم حاسوب في بوليتكنيكو دي ميلانو · متاح للتدريب"},
+ contact:{kicker:"تواصل معي",title:"لديك تدريب أو مشروع في ذهنك؟",
+  awake:"الساعة عندي {t} — على الأغلب مستيقظ، راسلني الآن.",asleep:"الساعة عندي {t} — على الأغلب نائم، سأرد في الصباح."},
  about:{heading:"نبذة عني",focusLabel:"المجالات",langLabel:"اللغات",contactLabel:"تواصل معي",cv:"السيرة الذاتية (PDF)",
   body:["أنا مُطوِّر يهمّه ما يصمد أمام التدقيق أكثر ممّا يبدو جميلًا في عرضٍ سريع.",
   "أعيش في كريما بإيطاليا وأدرس علوم الحاسوب في بوليتكنيكو دي ميلانو. أعمل بين الأبحاث الكمّية، والوِب المتكامل، والرؤية الحاسوبية، وبرمجة الأنظمة الكلاسيكية — من محرّك شطرنج متعدّد اللاعبين إلى منصّة حجوزات مدنية تعمل لمنظّمة محلّية حقيقية.",
@@ -646,8 +639,7 @@ T.ar={_name:"ع",
   langs:"العربية (لغة أم) · الإنجليزية (B2) · الإيطالية · الألمانية · أتعلّم الماندرين"},
  ui:{back:"كل الأعمال",viewGithub:"عرض على GitHub",liveDemo:"عرض حي",privateRepo:"خاص — متاح عند الطلب",
   role:"الدور",year:"السنة",context:"السياق",stack:"التقنيات",highlights:"أبرز النقاط",nextProject:"المشروع التالي",otherWork:"أعمال أخرى"},
- footer:{credit:"تصميم وتطوير عبد الرحمن بركات — 2026",privacy:"الخصوصية"},
- contact:{kicker:"تواصل معي",head:"لنتحدّث",availLabel:"التوفّر",linksLabel:"روابط",line:"لديك تدريب أو مشروع في بالك؟ أقرأ كل رسالة بنفسي — بلا روبوتات ولا CRM.",inCrema:"في كريما",availAwake:"مستيقظ الآن — ردّي عادةً سريع",availAsleep:"نائم الآن — سأردّ حالما أستيقظ"},
+ footer:{credit:"تصميم وتطوير عبد الرحمن بركات — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"أبحاث كمّية",role:"بحث وبنية تحتية",context:"بحث شخصي",
    desc:["مختبر أبحاث كمّية محكوم يحوّل كل فكرة استراتيجية إلى تجربة قابلة للتدقيق — بوابات بيانات، وتحقّق خارج العيّنة، وواقعية تكاليف التداول، واختبارات متانة، وسجلّات قرار.","أهمّ نتيجة ليست استراتيجية مربحة، بل نظام يرفض مرارًا الترويج للأدلة الضعيفة."],
@@ -679,7 +671,9 @@ T.ar={_name:"ع",
  }};
 T.ch={_name:"CH",
  nav:{work:"Projäkt",about:"Über mi"},
- hero:{eyebrow:"Abed Barakat",title:"Software-\nEntwickler",tagline:"Quantitativi Forschig · Full-Stack-Systeem · Computer Vision",loc:"Dehei z Italie",scroll:"Projäkt",status:"Informatik-Student am Politecnico di Milano · offe für Praktika"},
+ hero:{eyebrow:"Abed Barakat",title:"Software-\nEntwickler",loc:"Dehei z Italie",scroll:"Projäkt",status:"Informatik-Student am Politecnico di Milano · offe für Praktika"},
+ contact:{kicker:"Kontakt",title:"Es Praktikum oder es Projäkt im Chopf?",
+  awake:"Bi mir isch es {t} — wahrschiinlich bin i wach, schriib mer.",asleep:"Bi mir isch es {t} — wahrschiinlich schlaf i, Antwort chunt am Morge."},
  about:{heading:"Über mi",focusLabel:"Schwerpünkt",langLabel:"Sproche",contactLabel:"Kontakt",cv:"Läbeslauf (PDF)",
   body:["Ich bi en Entwickler wo s wichtiger findet, was ere Prüefig standhaltet, als was i ere Demo guet ussäät.",
   "Ich läbe z Crema z Italie und studier Informatik am Politecnico di Milano. Ich schaffe zwüsche quantitativer Forschig, Full-Stack-Web, Computer Vision und klassischer Systemprogrammierig — vo ere Multiplayer-Schach-Engine bis zu ere kommunale Buechigs-Plattform wo für e echti lokali Organisation lauft.",
@@ -688,8 +682,7 @@ T.ch={_name:"CH",
   langs:"Arabisch (Muetersproch) · Änglisch (B2) · Italienisch · Dütsch · lernt grad Mandarin"},
  ui:{back:"Alli Projäkt",viewGithub:"Uf GitHub aaluege",liveDemo:"Live-Demo",privateRepo:"Privat — uf Aafrog verfüegbar",
   role:"Rolle",year:"Jahr",context:"Kontext",stack:"Stack",highlights:"Highlights",nextProject:"Nächschts Projäkt",otherWork:"Anderi Arbeite"},
- footer:{credit:"Gstaltet & buut vom Abed Barakat — 2026",privacy:"Dateschutz"},
- contact:{kicker:"Kontakt",head:"Rede mer",availLabel:"Verfüegbarkeit",linksLabel:"Links",line:"Es Praktikum oder es Projäkt im Chopf? Ich lise jedi Nochricht sälber — kei Bots, kes CRM.",inCrema:"z Crema",availAwake:"grad wach — antwortet meist schnäll",availAsleep:"schlaft grad — Antwort, sobald ich wach bi"},
+ footer:{credit:"Gstaltet & buut vom Abed Barakat — 2026"},
  p:{
   "adaptive-equity-trading-lab":{cat:"Quantitativi Forschig",role:"Forschig & Infrastruktur",context:"Eiges Projäkt",
    desc:["Es kontrollierts Quant-Forschigs-Labor wo jedi Strategie-Idee i nes überprüefbars Experimänt verwandlet — Date-Gates, Out-of-Sample-Validierig, realistischi Transaktionschöste, Robustheits-Checks und Entscheidigs-Protokoll.","S wichtigschte Resultat isch kei profitabli Strategie, sondern es Systeem wo schwachi Evidänz immer wieder zruggwiist."],
@@ -769,7 +762,6 @@ function tp(id){return (T[lang]&&T[lang].p&&T[lang].p[id])||T.en.p[id]}
 function dig(o,path){return path.split(".").reduce((x,k)=>(x&&x[k]!=null)?x[k]:null,o)}
 function tr(path){const v=dig(L(),path);return (v!=null)?v:dig(T.en,path)}
 function titleOf(id){return TITLES[id]}
-function applyEmail(){const e=["abed","abedbarakat.me"].join("@");document.querySelectorAll("[data-email]").forEach(a=>{a.setAttribute("href","mailto:"+e);a.textContent=e;});document.querySelectorAll("[data-email-link]").forEach(a=>{a.setAttribute("href","mailto:"+e);});}
 const ICN={
  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
@@ -812,7 +804,7 @@ function renderAboutView(){
   +'<div class="av-meta">'
   +'<div class="blk av-rev" style="--d:.5s"><div class="lbl">'+A.focusLabel+'</div><ul>'+(A.focus||[]).map(f=>'<li>'+f+'</li>').join("")+'</ul></div>'
   +'<div class="blk av-rev" style="--d:.58s"><div class="lbl">'+A.langLabel+'</div><div class="langline">'+A.langs+'</div></div>'
-  +'<div class="blk av-rev" style="--d:.66s"><div class="lbl">'+A.contactLabel+'</div><div class="av-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="https://www.linkedin.com/in/abed-alrahman-barakat-16aa593ba/" target="_blank" rel="noopener">LinkedIn</a><a class="av-link" data-email-link href="#">Email</a><a class="av-link" href="'+(lang==="it"?"cv-it.pdf":"cv-en.pdf")+'" download>'+(A.cv||"CV (PDF)")+'</a></div></div>'
+  +'<div class="blk av-rev" style="--d:.66s"><div class="lbl">'+A.contactLabel+'</div><div class="av-links"><a class="av-link" href="https://github.com/PerfectPoH" target="_blank" rel="noopener">GitHub</a><a class="av-link" href="mailto:abed@abedbarakat.me">Email</a><a class="av-link" href="'+(lang==="it"?"cv-it.pdf":"cv-en.pdf")+'" download>'+(A.cv||"CV (PDF)")+'</a></div></div>'
   +'</div>'
   +'<svg class="sig av-rev" style="--d:.7s" viewBox="0 0 240 90" aria-hidden="true"><path d="M22,64 C14,44 30,18 40,24 C50,30 36,58 28,66 C40,56 48,50 56,52 M64,22 C60,40 58,54 58,62 C64,50 76,46 77,54 C78,62 66,68 61,62 M88,56 C98,54 102,46 95,45 C88,44 84,54 90,60 C96,64 104,60 108,56 M136,20 C130,40 127,54 127,62 C132,50 142,44 145,52 C147,59 138,66 131,60"/><path d="M16,78 C70,86 150,82 224,64"/></svg>'
   +'</div></div>';
@@ -823,7 +815,6 @@ function applyStatic(){
  document.title="Abed Barakat — "+sub;
  document.documentElement.lang=(lang==="ch")?"gsw":lang;
  document.documentElement.dir=(lang==="ar")?"rtl":"ltr";
- const cv=document.getElementById("ctCv");if(cv)cv.setAttribute("href",(lang==="it")?"cv-it.pdf":"cv-en.pdf");
 }
 /* ============ DETAIL ============ */
 let _curProj=null,_vplayNext=false;
@@ -858,13 +849,14 @@ function openProject(id){
  if(location.hash!=="#/work/"+id)location.hash="#/work/"+id;
  window.scrollTo(0,0);
 }
-function goHome(){_curProj=null;stopMedia();document.body.classList.remove("detail-open","about-open");if(location.hash)history.pushState("",document.title,location.pathname+location.search);window.scrollTo(0,0);setTimeout(scrollFx,0);}
+function goHome(){_curProj=null;stopMedia();document.body.classList.remove("detail-open","about-open","privacy-open");if(location.hash)history.pushState("",document.title,location.pathname+location.search);window.scrollTo(0,0);setTimeout(scrollFx,0);}
 function routeFromHash(){
  const m=location.hash.match(/#\/work\/(.+)/);
- if(m&&PROJECTS.find(p=>p.id===m[1])){document.body.classList.remove("about-open");if(_curProj!==m[1])openProject(m[1]);return;}
+ if(m&&PROJECTS.find(p=>p.id===m[1])){document.body.classList.remove("about-open","privacy-open");if(_curProj!==m[1])openProject(m[1]);return;}
  if(location.hash==="#/about"){openAbout(true);return;}
+ if(location.hash==="#/privacy"){openPrivacy(true);return;}
  stopMedia();
- document.body.classList.remove("detail-open","about-open");
+ document.body.classList.remove("detail-open","about-open","privacy-open");
 }
 /* ============ OBSERVERS ============ */
 function observeThumbs(){
@@ -907,9 +899,9 @@ function wipeTo(action){
 }
 function openAbout(direct){
  stopMedia();
- document.body.classList.remove("detail-open");
+ document.body.classList.remove("detail-open","privacy-open");
  document.body.classList.add("about-open");
- renderAboutView();applyEmail();
+ renderAboutView();
  if(!direct)location.hash="#/about";
  window.scrollTo(0,0);
 }
@@ -923,6 +915,22 @@ function openFromCard(card){
  const vt=document.startViewTransition(()=>openProject(id));
  vt.finished.finally(()=>{if(th)th.style.viewTransitionName="";});
 }
+function renderPrivacy(){
+ const P=(T[lang]&&T[lang].privacy)||T.en.privacy;
+ const v=document.getElementById("privacy-view");
+ v.innerHTML='<button class="av-back" data-home>'+tr("ui.back")+'</button>'
+  +'<div class="priv-wrap"><h1 class="about-h">'+P.title+'</h1><p class="priv-upd">'+P.updated+'</p>'
+  +P.sections.map(s=>'<h3>'+s[0]+'</h3><p>'+s[1]+'</p>').join("")+'</div>';
+ v.querySelector("[data-home]").onclick=goHome;
+}
+function openPrivacy(direct){
+ stopMedia();
+ document.body.classList.remove("detail-open","about-open");
+ document.body.classList.add("privacy-open");
+ renderPrivacy();
+ if(!direct)location.hash="#/privacy";
+ window.scrollTo(0,0);
+}
 function dismissLoader(){
  const ld=document.getElementById("loader");if(!ld)return;
  const done=()=>ld.classList.add("done");
@@ -935,17 +943,21 @@ function bindTheme(){
  b.onclick=()=>{const d=document.documentElement.classList.toggle("dark");try{localStorage.setItem("theme",d?"dark":"light")}catch(e){}};
 }
 function tickClock(){
- const txt=document.getElementById("availTxt"),dot=document.getElementById("availDot");
- if(!txt&&!dot)return;
  const loc=(lang==="ch")?"de-CH":lang;
- let s="",h=13;
- try{
-  s=new Intl.DateTimeFormat(loc,{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Rome"}).format(new Date());
-  h=parseInt(new Intl.DateTimeFormat("en-GB",{hour:"2-digit",hour12:false,timeZone:"Europe/Rome"}).format(new Date()),10);
- }catch(e){const d=new Date();s=d.toLocaleTimeString();h=d.getHours();}
- const awake=(h>=9&&h<22);
- if(dot)dot.classList.toggle("asleep",!awake);
- if(txt)txt.textContent=s+" "+tr("contact.inCrema")+" · "+tr(awake?"contact.availAwake":"contact.availAsleep");
+ let s="";
+ try{s=new Intl.DateTimeFormat(loc,{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Rome",timeZoneName:"short"}).format(new Date())}
+ catch(e){s=new Date().toLocaleTimeString()}
+ const el=document.getElementById("clock");
+ if(el)el.textContent="Crema, IT · "+s;
+ const aw=document.getElementById("awake");
+ if(aw){
+  let h=12;
+  try{h=parseInt(new Intl.DateTimeFormat("en-GB",{hour:"2-digit",hour12:false,timeZone:"Europe/Rome"}).format(new Date()),10)}catch(e){}
+  const awake=h>=8;
+  aw.textContent=tr(awake?"contact.awake":"contact.asleep").replace("{t}",s);
+  const dot=document.querySelector(".c-dot");
+  if(dot)dot.classList.toggle("zzz",!awake);
+ }
 }
 function bindHeroCycle(){
  const h=document.querySelector(".hero h1");if(!h||REDUCE)return;
@@ -1015,13 +1027,14 @@ function initCursor(){
 }
 try{
  console.log("%cAB%c Abed Barakat — portfolio","background:#15140f;color:#fff;font:700 13px/1.9 sans-serif;padding:2px 9px;border-radius:5px","font:12px sans-serif;padding-left:8px;color:inherit");
- console.log("Curious about the code? → https://github.com/PerfectPoH\nHiring? → "+["abed","abedbarakat.me"].join("@"));
+ console.log("Curious about the code? → https://github.com/PerfectPoH\nHiring? → abed@abedbarakat.me");
 }catch(e){}
 /* ============ LANG / NAV / INIT ============ */
 function setLang(l){
  if(!T[l])l="en";lang=l;localStorage.setItem("lang",l);
- renderLangs();applyStatic();renderWork();tickClock();applyEmail();
- if(document.body.classList.contains("about-open")){renderAboutView();applyEmail();}
+ renderLangs();applyStatic();renderWork();tickClock();
+ if(document.body.classList.contains("about-open"))renderAboutView();
+ if(document.body.classList.contains("privacy-open"))renderPrivacy();
  if(document.body.classList.contains("detail-open")){const m=location.hash.match(/#\/work\/(.+)/);if(m)openProject(m[1]);}
 }
 function bindNav(){
@@ -1033,7 +1046,7 @@ function bindNav(){
  const ab=document.querySelector("[data-go-about]");
  if(ab)ab.onclick=(e)=>{e.preventDefault();if(document.body.classList.contains("about-open"))return;wipeTo(()=>openAbout());};
 }
-function init(){renderLangs();applyStatic();renderWork();applyEmail();buildWipe();bindNav();
+function init(){renderLangs();applyStatic();renderWork();buildWipe();bindNav();
  dismissLoader();bindTheme();bindHeroCycle();bindFavicon();initCursor();tickClock();setInterval(tickClock,30000);
  window.addEventListener("hashchange",routeFromHash);
  window.addEventListener("scroll",onScroll,{passive:true});
